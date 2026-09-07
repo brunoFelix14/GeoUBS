@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GeoUBS | Onde ser atendido</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+  <a class="brand" href="/"><span class="brand-mark">✚</span><span><strong>GeoUBS</strong><small>Onde ser atendido · Três Lagoas/MS</small></span></a>
+  <nav><a href="#mapa">Mapa</a><a href="#resultados">Unidades</a><a href="/admin">Gerenciar dados</a></nav>
+  <button class="about-btn" id="aboutBtn">Sobre</button>
+</header>
+<div class="workspace">
+<aside class="panel" id="panel">
+  <div class="panel-head">
+    <span class="kicker">SAÚDE PÚBLICA</span>
+    <h1>Onde ser atendido</h1>
+    <p>Encontre a unidade de saúde mais adequada para sua região.</p>
+  </div>
+  <div class="tabs"><button class="tab active" data-mode="address">Endereço</button><button class="tab" data-mode="unit">Unidade</button></div>
+  <section class="search-area">
+    <label id="searchLabel">Digite o CEP ou endereço de residência:</label>
+    <div class="search-row"><input id="searchInput" placeholder="Ex: Rua Maracaju, 10"><button id="searchBtn" title="Buscar">⌕</button></div>
+    <button class="locate" id="locationBtn">◎ Usar minha localização</button>
+    <div class="search-hint" id="searchHint">A busca por endereço encontra as UBS mais próximas.</div>
+  </section>
+  <section class="filters">
+    <div class="filter-title"><strong>Filtrar resultados</strong><button id="clearFilters">Limpar</button></div>
+    <div class="chips"><button class="chip" data-service="Vacinação">Vacinação</button><button class="chip" data-service="Farmácia">Farmácia</button><button class="chip" data-service="Telemedicina">Telemedicina</button><button class="chip" data-service="Clínico Geral">Clínico Geral</button></div>
+    <label class="open-toggle"><input type="checkbox" id="openOnly"><span>Somente unidades abertas</span></label>
+  </section>
+  <section class="results" id="resultados">
+    <div class="results-title"><div><span class="kicker">RESULTADO</span><h2>Sua unidade de saúde</h2></div><span class="count" id="resultCount">0</span></div>
+    <div class="nearest-banner hidden" id="nearestBanner"></div>
+    <div id="unitList" class="unit-list"></div>
+  </section>
+  <footer class="panel-footer"><span>GeoUBS · Projeto de geoprocessamento</span><a href="/admin">Administração →</a></footer>
+</aside>
+<section class="map-wrap" id="mapa">
+  <div id="leafletMap"></div>
+  <div class="map-card top-left"><span class="pulse"></span><div><strong>Mapa de atendimento</strong><small>Três Lagoas · Mato Grosso do Sul</small></div></div>
+  <div class="map-card map-legend"><span><i class="dot open"></i>Ativa</span><span><i class="dot closed"></i>Inativa</span></div>
+  <div class="map-controls"><button id="zoomIn">+</button><button id="zoomOut">−</button><button id="fitMap">⌖</button></div>
+  <div class="map-status"><div class="status-icon">✚</div><div><strong id="summaryTitle">Rede de atenção primária</strong><span id="summaryText">Carregando unidades...</span></div></div>
+  <button class="fullscreen-btn" id="fullscreenBtn">⛶</button>
+</section>
+</div>
+</div>
+<div class="modal hidden" id="modal"><div class="modal-card"><button class="modal-close" id="closeModal">×</button><span class="kicker">GEOPROCESSAMENTO</span><h2>Sobre o GeoUBS</h2><p>Sistema acadêmico para localizar e consultar Unidades Básicas de Saúde de Três Lagoas/MS.</p><p>O projeto utiliza HTML, CSS, JavaScript, Leaflet, Python/Flask e PostgreSQL. Os dados podem ser mantidos pelo painel administrativo.</p><div class="modal-grid"><span>Mapa<br><b>Leaflet + OSM</b></span><span>Backend<br><b>Flask</b></span><span>Banco<br><b>PostgreSQL</b></span></div></div></div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="/static/js/script.js"></script>
+</body>
+</html>
