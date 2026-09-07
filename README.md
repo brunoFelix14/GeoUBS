@@ -1,6 +1,6 @@
 # GeoUBS — Três Lagoas/MS
 
-Sistema de geoprocessamento das Unidades Básicas de Saúde de Três Lagoas/MS, inspirado em portais públicos de "Onde ser atendido", com foco em mapa, busca por endereço e manutenção dos dados.
+O GeoUBS é um sistema de geoprocessamento voltado ao gerenciamento e visualização de Unidades Básicas de Saúde, utilizando dados georreferenciados para representar espacialmente as UBS de Três Lagoas/MS.
 
 ## O que foi atualizado
 
